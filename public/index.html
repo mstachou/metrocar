@@ -43,6 +43,21 @@
   <script>
     Map.init('#map');
 
+    var num_conditions = 2;
+    var condition = 0;
+
+    $("#button_left").on('click', function(){
+      ++condition;
+      condition %= num_conditions;
+
+      Map.set_condition(condition);
+    });
+    $("#button_right").on('click', function(){
+      --condition;
+      if (condition < 0) condition = num_conditions - 1;
+
+      Map.set_condition(condition);
+    });
   </script>
 
 </body>
